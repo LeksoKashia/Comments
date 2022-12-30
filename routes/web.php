@@ -18,13 +18,17 @@ use App\Http\Controllers\PostController;
 */
 
 
+Route::domain('admin.localhost')->group( function () {
+  Route::get('/', [PostController::class, 'admin']);
+  Route::post('/', [PostController::class, 'addOrDelete']);
+  Route::get('/comments/{id}', [PostController::class, 'allComments']);
+  Route::post('/comments/{id}', [PostController::class, 'deleteCom']);
+});
+
+
 Route::get('/', [PostController::class, 'main']);
-Route::get('/admin', [PostController::class, 'admin']);
-Route::post('/admin', [PostController::class, 'addOrDelete']);
 Route::get('/{post}', [PostController::class, 'post']);
 Route::post('/{post}', [PostController::class, 'addComm']);
-Route::get('/comments/{id}', [PostController::class, 'allComments']);
-Route::post('/comments/{id}', [PostController::class, 'deleteCom']);
 
 // Route::get('/post/{id}', function ($id) {
 
