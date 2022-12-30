@@ -46,7 +46,7 @@
 
 document.getElementById('form').addEventListener('submit', event => {
 
-    fetch('/add-to-database', {
+    fetch('/addcomms', {
         method: 'POST',
         body: JSON.stringify({
           user_name: document.getElementById('user_name').value,
